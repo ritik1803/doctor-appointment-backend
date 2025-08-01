@@ -7,7 +7,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: "https://vercel-frontend-two-kappa.vercel.app", // ✅ Your frontend URL
+  origin: "https://doctor-appointment-sand.vercel.app/", // ✅ Your frontend URL
   credentials: true
 }));
 app.use(express.json());
