@@ -6,7 +6,10 @@ require('dotenv').config();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: "https://vercel-frontend-two-kappa.vercel.app", // ✅ Your frontend URL
+  credentials: true
+}));
 app.use(express.json());
 
 // Routes
