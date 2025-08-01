@@ -17,6 +17,10 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/appointments', require('./routes/appointments'));
 app.use('/api/services', require('./routes/services'));
 app.use('/api/patients', require('./routes/patients'));
+app.get('/test', (req, res) => {
+  res.send('Backend live ✅');
+});
+
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/doctor-booking')
