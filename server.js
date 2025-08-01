@@ -5,10 +5,20 @@ require('dotenv').config();
 
 const app = express();
 
+const allowedOrigins = [
+  'https://doctor-appointment-sand.vercel.app'
+];
+
 // Middleware
 app.use(cors({
-  origin: "https://doctor-appointment-sand.vercel.app/", // ✅ Your frontend URL
-  credentials: true
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true, // if you are using cookies or sessions
 }));
 app.use(express.json());
 
